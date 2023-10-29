@@ -171,7 +171,6 @@
     opacity: 1;
     /* transition: opacity 0.5s ease-in; */
   }
-
   .container {
     position: absolute;
   }
