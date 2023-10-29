@@ -31,26 +31,22 @@
           you.
         </p>
       </div>
-      {#if btnBool == true}
-        <h1 class="spookyText text-9xl">START</h1>
-      {:else}
-        <img class="float-right mb-32" src={keysImg} alt="" />
-        <div class="flex-div">
-          <h4 class="spookyText float-left pl-4 pt-4 text-purple-800 text-4xl">
-            Think you're up for the challange?
-          </h4>
-          <button
-            align="center"
-            on:click={toBlack}
-            class="spookyText float-left pl-4 pt-4 text-4xl text-blue-400 hover:border-4
+      <img class="float-right mb-32" src={keysImg} alt="" />
+      <div class="flex-div">
+        <h4 class="spookyText float-left pl-4 pt-4 text-purple-800 text-4xl">
+          Think you're up for the challange?
+        </h4>
+        <button
+          align="center"
+          on:click={toBlack}
+          class="spookyText float-left pl-4 pt-4 text-4xl text-blue-400 hover:border-4
             hover:border-none hover:bg-gradient-to-r from-red-800 to-stone-900 rounded-ful
             hover:text-white hover:text-opacity-75"
-            id="begin-btn"
-          >
-            lets Begin</button
-          >
-        </div>
-      {/if}
+          id="begin-btn"
+        >
+          lets Begin</button
+        >
+      </div>
     </div>
   </div>
 </div>

@@ -3,6 +3,8 @@
   import key1 from "$lib/assets/key1t.png";
   import key2 from "$lib/assets/key2.png";
   import key3 from "$lib/assets/key3.png";
+  import jump from "$lib/assets/jump.mp3";
+  import pumpkin from "$lib/assets/pumpkin.mp3";
 
   let time = 0;
   let randomInt1;
@@ -11,12 +13,20 @@
   let randomInt4;
   let randomInt5;
   let randomInt6;
+  let keysCount = 0;
 
   onMount(() => {
     const interval = setInterval(() => {
       time += 1;
-    }, 200);
+    }, 150);
 
+    const timeOut = () => {
+      var audio = new Audio(jump);
+      audio.play();
+      const interval = setInterval(() => {
+        audio.pause();
+      }, 5000);
+    };
     const keyFound = (i) => {
       alert(`You found key ${i}`);
     };
@@ -39,46 +49,89 @@
     randomInt5 = getRandomInt(10, 90);
     randomInt6 = getRandomInt(10, 90);
   });
-</script>
+  let boolOne = true;
+  let boolTwo = true;
+  let boolThree = true;
 
-<!-- style={`left: ${event.clientX}px, top: ${event.clientY}px`} -->
+  function giveUp() {
+    console.log("start giveup");
+    winOne();
+    winTwo();
+    winThree();
+    var audio = new Audio(pumpkin);
+    audio.play();
+  }
+  function winOne() {
+    boolOne = false;
+    keyWin();
+  }
+  function winTwo() {
+    boolTwo = false;
+    keyWin();
+  }
+  function winThree() {
+    boolThree = false;
+    keyWin();
+  }
+  function keyWin() {
+    keysCount++;
+    if (keysCount >= 3) {
+      var audio = new Audio(jump);
+      audio.play();
+      const interval = setInterval(() => {
+        audio.pause();
+      }, 5000);
+
+      window.open("https://spookyscarrysite.vercel.app/", "_blank").focus();
+    }
+    // var audio = new Audio();
+  }
+</script>
 
 <div class="container">
   <div class="cursor" id="cursor" />
 </div>
-
-<div class="keyContainer">
-  <img
-    id="key1"
-    class="key1 key"
-    src={key1}
-    alt=""
-    style="left: {randomInt1}%; top: {randomInt2}%"
-  />
+{#if boolOne == true}
+  <div class="keyContainer" on:click={winOne}>
+    <img
+      id="key1"
+      class="key1 key"
+      src={key1}
+      alt=""
+      style="left: {randomInt1}%; top: {randomInt2}%"
+    />
+  </div>
+{/if}
+<div class="buttons_two">
+  <div class="timer">
+    <h1 class="spookyText text-purple-800 text-4xl">TIME: {time}</h1>
+  </div>
 </div>
 
-<div class="keyContainer">
-  <img
-    id="key2"
-    class="key2 key"
-    src={key2}
-    alt=""
-    style="left: {randomInt3}%; top: {randomInt4}%"
-  />
-</div>
-<div class="keyContainer">
-  <img
-    id="key3"
-    class="key3 key"
-    src={key1}
-    alt=""
-    style="left: {randomInt5}%; top: {randomInt6}%"
-  />
-</div>
+{#if boolTwo == true}
+  <div class="keyContainer" on:click={winTwo}>
+    <img
+      id="key2"
+      class="key2 key"
+      src={key2}
+      alt=""
+      style="left: {randomInt3}%; top: {randomInt4}%"
+    />
+  </div>
+{/if}
+
+{#if boolThree == true}
+  <div class="keyContainer" on:click={winThree}>
+    <img
+      id="key3"
+      class="key3 key"
+      src={key1}
+      alt=""
+      style="left: {randomInt5}%; top: {randomInt6}%"
+    />
+  </div>
+{/if}
 <div class="background" />
-<div class="timer">
-  <h1>Time: {time}</h1>
-</div>
 
 <!-- <div class="flex">
     <h1 align="left" class="spookyText text-purple-800 text-5xl">First Room</h1>
@@ -93,6 +146,9 @@
 <!-- </div> -->
 
 <style>
+  /* .timer {
+    position: absolute;
+  } */
   :global(body) {
     background-image: url("$lib/assets/interior.jpeg");
     background-size: cover;
@@ -173,5 +229,12 @@
   }
   .container {
     position: absolute;
+  }
+  @font-face {
+    font-family: spookyText;
+    src: url("$lib/spookyFont.otf");
+  }
+  .spookyText {
+    font-family: spookyText;
   }
 </style>
