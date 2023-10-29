@@ -132,8 +132,9 @@
     left: var(--randint-1) + "%";
     top: randomInt2 + "%";
     opacity: 0;
-    padding: 50px;
-    border: white;
+    margin: 50px;
+    border: 50px;
+
     /* transition: "opacity 0.5s ease-in"; */
   }
 
@@ -145,8 +146,8 @@
     left: randomInt3 + "%";
     top: randomInt4 + "%";
     opacity: 0;
-    padding: 50px;
-    border: white;
+    margin: 50px;
+    border: 50px;
   }
 
   .key3 {
@@ -156,9 +157,9 @@
     z-index: 100;
     left: randomInt5 + "%";
     top: randomInt6 + "%";
-    opacity: 1;
-    padding: 50px;
-    border: 1px solid white;
+    opacity: 0;
+    /* margin: 50px; */
+    border: 50px;
   }
   .key1:hover {
     opacity: 1;
