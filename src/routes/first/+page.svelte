@@ -70,7 +70,7 @@
   <img
     id="key3"
     class="key3 key"
-    src={key3}
+    src={key1}
     alt=""
     style="left: {randomInt5}%; top: {randomInt6}%"
   />
@@ -128,40 +128,47 @@
     width: 50px;
     height: 50px;
     position: absolute;
-    z-index: 6;
-    /* left: var(--randint-1) + "%";
-    top: randomInt2 + "%"; */
-    opacity: 0.5;
+    z-index: 100;
+    left: var(--randint-1) + "%";
+    top: randomInt2 + "%";
+    opacity: 0;
+    padding: 50px;
+    border: white;
+    /* transition: "opacity 0.5s ease-in"; */
   }
+
   .key2 {
-    width: 50px;
-    height: 50px;
+    width: 25px;
+    height: 25px;
     position: absolute;
-    z-index: 6;
+    z-index: 100;
     left: randomInt3 + "%";
     top: randomInt4 + "%";
-    opacity: 0.5;
+    opacity: 0;
+    padding: 50px;
+    border: white;
   }
+
   .key3 {
-    width: 50px;
-    height: 50px;
+    width: 75px;
+    height: 75px;
     position: absolute;
-    z-index: 6;
+    z-index: 100;
     left: randomInt5 + "%";
     top: randomInt6 + "%";
-    opacity: 0.5;
+    opacity: 1;
+    padding: 50px;
+    border: 1px solid white;
   }
-  .key1 :hover {
-    opacity: 0.2;
-    z-index: 6;
+  .key1:hover {
+    opacity: 1;
   }
-  .key2 :hover {
-    opacity: 0.2;
-    z-index: 6;
+  .key2:hover {
+    opacity: 1;
   }
-  .key3 :hover {
-    opacity: 0.2;
-    z-index: 6;
+  .key3:hover {
+    opacity: 1;
+    /* transition: opacity 0.5s ease-in; */
   }
 
   .container {
