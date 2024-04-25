@@ -2,4 +2,4 @@
 
 ## weekend long hackathon in chicago by hackclub
 
-Colobaorated with Andrew Kaufman ( https://github.com/andrewk2929 )
+collaborated with Andrew Kaufman ( https://github.com/andrewk2929 )
